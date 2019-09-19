@@ -13,7 +13,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 @SuppressWarnings({ "serial", "deprecation", "unused" })
-public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
+public class AtgHatasfokEsFajlagos_ENG extends JFrame implements ChangeListener {
 	private JSlider slider;
 	private JPanel controlpanel;
 	private JPanel drawpanel;
@@ -35,7 +35,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 	Vector<Double> yf;
 
 	public static void main(String[] args) {
-        AtgHatasfokEsFajlagos app = new AtgHatasfokEsFajlagos();
+        AtgHatasfokEsFajlagos_ENG app = new AtgHatasfokEsFajlagos_ENG();
         app.init();
     }
 	
@@ -82,7 +82,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 		slider.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
 		slider.addChangeListener(this);
 
-		message = new JLabel("Tolózár állás: 50 %", JLabel.CENTER);
+		message = new JLabel("Throttle valve position: 50 %", JLabel.CENTER);
 
 		controlpanel = new JPanel();
 		controlpanel.setLayout(new GridLayout(0, 1));
@@ -108,7 +108,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 		drawing1.setShowNumbers(true);
 		drawing1.setxOffset(60);
 		drawing1.setyOffset(40);
-		drawing1.setTitle("Jelleggörbe");
+		drawing1.setTitle("Characteristics");
 		drawing1.setShowTitle(true);
 
 		drawing2 = new Plotter();
@@ -118,7 +118,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 		drawing2.setyMax(1.1);
 		drawing2.setWidth(300);
 		drawing2.setHeight(200);
-		drawing2.setXlabel("Nyitás");
+		drawing2.setXlabel("Opening");
 		drawing2.setYlabel("K");
 		drawing2.setxTic(25);
 		drawing2.setyTic(0.2);
@@ -127,7 +127,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 		drawing2.setShowAxis(true);
 		drawing2.setxOffset(40);
 		drawing2.setyOffset(40);
-		drawing2.setTitle("Tolózár ellenállástényezõ");
+		drawing2.setTitle("Throttle valve resistance coefficient");
 		drawing2.setShowTitle(true);
 
 		drawing3 = new Plotter();
@@ -138,14 +138,14 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 		drawing3.setWidth(300);
 		drawing3.setHeight(200);
 		drawing3.setXlabel("Q [m3/h]");
-		drawing3.setYlabel("hatásfok [%]");
+		drawing3.setYlabel("Efficiency [%]");
 		drawing3.setxTic(100);
 		drawing3.setyTic(20);
 		drawing3.setShowTicks(true);
 		drawing3.setShowNumbers(true);
 		drawing3.setxOffset(60);
 		drawing3.setyOffset(40);
-		drawing3.setTitle("Hatásfok");
+		drawing3.setTitle("Efficiency");
 		drawing3.setShowTitle(true);
 
 		drawing4 = new Plotter();
@@ -163,7 +163,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 		drawing4.setShowNumbers(true);
 		drawing4.setxOffset(40);
 		drawing4.setyOffset(40);
-		drawing4.setTitle("Fajlagos energiafogyasztás");
+		drawing4.setTitle("Specific energy consumpion");
 		drawing4.setShowTitle(true);
 
 		update_curves();
@@ -229,7 +229,7 @@ public class AtgHatasfokEsFajlagos extends JFrame implements ChangeListener {
 
 	public void stateChanged(ChangeEvent ce) {
 
-		message.setText("Tolózár állás: " + slider.getValue() + " %");
+		message.setText("Throttle valve state: " + slider.getValue() + " %");
 
 		update_curves();
 	}

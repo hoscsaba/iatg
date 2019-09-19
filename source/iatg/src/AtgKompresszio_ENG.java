@@ -13,7 +13,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 @SuppressWarnings({ "serial", "deprecation", "unused" })
-public class AtgKompresszio extends JFrame implements ChangeListener {
+public class AtgKompresszio_ENG extends JFrame implements ChangeListener {
 	//private JPanel mainPanel;
     private JSlider p_slider;
     private JSlider n_slider;
@@ -58,7 +58,7 @@ public class AtgKompresszio extends JFrame implements ChangeListener {
     double ncs;
 
     public static void main(String[] args) {
-        AtgKompresszio app = new AtgKompresszio();
+    	AtgKompresszio_ENG app = new AtgKompresszio_ENG();
         app.init();
     }
 
@@ -92,7 +92,7 @@ public class AtgKompresszio extends JFrame implements ChangeListener {
         n_slider = new JSlider(JSlider.HORIZONTAL, 100, 160, 145);
         Hashtable<Integer, JLabel> n_labelTable = new Hashtable<Integer, JLabel>();
         n_labelTable.put(new Integer(100), new JLabel("1 (izoterm)"));
-        n_labelTable.put(new Integer(140), new JLabel("1.4 (izentrópikus)"));
+        n_labelTable.put(new Integer(140), new JLabel("1.4 (isentropic)"));
         n_labelTable.put(new Integer(160), new JLabel("1.6"));
 
         n_slider.setLabelTable(n_labelTable);
@@ -135,11 +135,11 @@ public class AtgKompresszio extends JFrame implements ChangeListener {
 
         label_eleje = new JLabel("");
         label_eleje.setForeground(Color.BLACK);
-        label_kiindulo = new JLabel("Kiinduló állapot", JLabel.CENTER);
+        label_kiindulo = new JLabel("Starting state", JLabel.CENTER);
         label_kiindulo.setForeground(Color.BLACK);
-        label_izentrop = new JLabel("Izentrópikus", JLabel.CENTER);
+        label_izentrop = new JLabel("Isentropic", JLabel.CENTER);
         label_izentrop.setForeground(Color.RED);
-        label_politrop = new JLabel("Politrópikus", JLabel.CENTER);
+        label_politrop = new JLabel("Politropic", JLabel.CENTER);
         label_politrop.setForeground(Color.BLUE);
 
         bottompanel.add(label_eleje);
@@ -187,8 +187,8 @@ public class AtgKompresszio extends JFrame implements ChangeListener {
         double p = (double) p_slider.getValue() / 10;
         double n = (double) n_slider.getValue() / 100;
 
-        p_message.setText("Kompresszióviszony (p2/p1): " + p);
-        n_message.setText("Politrópikus kitevõ (n): " + n);
+        p_message.setText("Compression ratio (p2/p1): " + p);
+        n_message.setText("Politropic index (n): " + n);
 
         drawing1.DeleteAll();
 
@@ -269,7 +269,7 @@ public class AtgKompresszio extends JFrame implements ChangeListener {
     }
 
     public void stateChanged(ChangeEvent ce) {
-        p_message.setText("Fordulatszám: " + p_slider.getValue() + " % ");
+        p_message.setText("RPM: " + p_slider.getValue() + " % ");
         update_curves();
     }
 

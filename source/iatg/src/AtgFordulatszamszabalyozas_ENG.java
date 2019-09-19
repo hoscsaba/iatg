@@ -14,7 +14,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 @SuppressWarnings({ "serial", "deprecation", "unused" })
-public class AtgFordulatszamszabalyozas extends JFrame implements
+public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 		ChangeListener {
 	private JSlider slider;
 	private JPanel controlpanel;
@@ -36,7 +36,7 @@ public class AtgFordulatszamszabalyozas extends JFrame implements
 	double nnevl = 1470;
 
 	public static void main(String[] args) {
-		AtgFordulatszamszabalyozas app = new AtgFordulatszamszabalyozas();
+		AtgFordulatszamszabalyozas_ENG app = new AtgFordulatszamszabalyozas_ENG();
         app.init();
     }
 	
@@ -70,7 +70,7 @@ public class AtgFordulatszamszabalyozas extends JFrame implements
 		slider.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
 		slider.addChangeListener(this);
 
-		message = new JLabel("Kívánt térfogatáram: 160 m3/h", JLabel.CENTER);
+		message = new JLabel("Wanted volume flow rate: 160 m3/h", JLabel.CENTER);
 
 		controlpanel = new JPanel();
 		controlpanel.setLayout(new GridLayout(0, 1));
@@ -96,18 +96,18 @@ public class AtgFordulatszamszabalyozas extends JFrame implements
 		drawing1.setShowNumbers(true);
 		drawing1.setxOffset(60);
 		drawing1.setyOffset(40);
-		drawing1.setTitle("Jelleggörbe");
+		drawing1.setTitle("Characteristics");
 		// drawing1.setShowTitle(true);
 
 		bottompanel = new JPanel(new GridLayout(2, 2));
 
-		label_Qk = new JLabel("Kívánt térfogatáram:  80  m3/h");
+		label_Qk = new JLabel("Wanted volume flow rate:  80  m3/h");
 		label_Qk.setForeground(Color.BLUE);
-		label_Qs = new JLabel("Segédpont          : 2 m3/h");
+		label_Qs = new JLabel("Helper point          : 2 m3/h");
 		label_Qs.setForeground(Color.RED);
-		label_nnevl = new JLabel("Névleges fordulatszám: 1470/perc");
+		label_nnevl = new JLabel("Névleges RPM : 1470/min");
 		label_nnevl.setForeground(Color.RED);
-		label_nuj = new JLabel("Új fordulatszám        : 2/perc");
+		label_nuj = new JLabel("New RPM        : 2/min");
 		label_nuj.setForeground(Color.DARK_GRAY);
 		bottompanel.add(label_Qk);
 		bottompanel.add(label_nnevl);
@@ -154,17 +154,17 @@ public class AtgFordulatszamszabalyozas extends JFrame implements
 
 		drawing1.repaint();
 
-		label_Qk.setText("Kívánt térfogatáram          : " + Qk + " m3/h");
-		label_Qs.setText("Segédpont térfogatáram : " + Math.round(Qs) + " m3/h");
-		label_nnevl.setText("Névleges fordulatszám : 1470/perc");
-		label_nuj.setText("Új fordulatszám              : " + Math.round(nuj)
-				+ "/perc");
+		label_Qk.setText("Wanted volume flow rate          : " + Qk + " m3/h");
+		label_Qs.setText("Helper point volume flow rate : " + Math.round(Qs) + " m3/h");
+		label_nnevl.setText("Névleges RPM : 1470/min");
+		label_nuj.setText("New RPM              : " + Math.round(nuj)
+				+ "/min");
 
 	}
 
 	public void stateChanged(ChangeEvent ce) {
 
-		message.setText("Kívánt térfogatáram: " + slider.getValue() + " m3/h ");
+		message.setText("Wanted volume flow rate: " + slider.getValue() + " m3/h ");
 
 		update_curves();
 	}

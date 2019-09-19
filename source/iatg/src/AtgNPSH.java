@@ -2,6 +2,7 @@ import java.awt.*;
 import java.applet.Applet;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -11,8 +12,8 @@ import javax.swing.event.ChangeListener;
 import java.util.Hashtable;
 import java.util.Vector;
 
-@SuppressWarnings("serial")
-public class AtgNPSH extends Applet implements ChangeListener {
+@SuppressWarnings({ "serial", "deprecation", "unused" })
+public class AtgNPSH extends JFrame implements ChangeListener {
 	private JSlider slider;
 	private JPanel controlpanel;
 	private JPanel drawpanel;
@@ -33,6 +34,11 @@ public class AtgNPSH extends Applet implements ChangeListener {
 	Vector<Double> NPSH;
 	Vector<Double> NPSH_H;
 
+	public static void main(String[] args) {
+		AtgNPSH app = new AtgNPSH();
+        app.init();
+    }
+	
 	public void init() {
 		int N = 100;
 		double dx = (xMax1 - xMin1) / (N - 1);
@@ -126,7 +132,7 @@ public class AtgNPSH extends Applet implements ChangeListener {
 
 		add("Center", drawpanel);
 		setSize(new Dimension(700, 350));
-
+		setVisible(true);
 	}
 
 	public void update_curves() {

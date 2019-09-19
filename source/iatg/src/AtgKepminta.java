@@ -7,8 +7,8 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-@SuppressWarnings("serial")
-public class AtgKepminta extends Applet implements ChangeListener {
+@SuppressWarnings({ "serial", "deprecation", "unused" })
+public class AtgKepminta extends JFrame implements ChangeListener {
 	ShowImage ShowImage_right;
 	ShowImage ShowImage_left;
 
@@ -26,6 +26,11 @@ public class AtgKepminta extends Applet implements ChangeListener {
 
 	int num_of_images;
 
+	public static void main(String[] args) {
+		AtgKepminta app = new AtgKepminta();
+        app.init();
+    }
+	
 	// Create a constructor method
 	public void init() {
 
@@ -77,6 +82,7 @@ public class AtgKepminta extends Applet implements ChangeListener {
 
 		add("Center", drawpanel);
 		setSize(new Dimension(620, 400));
+		setVisible(true);
 	}
 
 	public void update() {

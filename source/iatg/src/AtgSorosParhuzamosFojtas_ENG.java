@@ -18,7 +18,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 @SuppressWarnings({ "serial", "deprecation", "unused" })
-public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
+public class AtgSorosParhuzamosFojtas_ENG extends JFrame implements ChangeListener {
 	private JSlider slider_Q;
 	private JSlider slider_dp;
 	private JPanel slider_panel;
@@ -104,7 +104,7 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 	JTextField label_parh_eta_val;
 
 	public static void main(String[] args) {
-		AtgSorosParhuzamosFojtas app = new AtgSorosParhuzamosFojtas();
+		AtgSorosParhuzamosFojtas_ENG app = new AtgSorosParhuzamosFojtas_ENG();
         app.init();
     }
 	
@@ -139,7 +139,7 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 
 		message_Q = new JLabel("", JLabel.CENTER);
 		message_Q
-				.setText("Q/Qsziv.geo.: " + slider_Q.getValue() / 100 + " [-]");
+				.setText("Q/Q pump geo.: " + slider_Q.getValue() / 100 + " [-]");
 
 		slider_dp = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
 		// Create the label table.
@@ -153,20 +153,20 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 		slider_dp.addChangeListener(this);
 
 		message_dp = new JLabel("", JLabel.CENTER);
-		message_dp.setText("Nyomás: " + slider_dp.getValue() + " [bar]");
+		message_dp.setText("Pressure: " + slider_dp.getValue() + " [bar]");
 
-		label_Vgsz = new JLabel("Vg sziv. [cm^3] : ", JLabel.CENTER);
+		label_Vgsz = new JLabel("Vg pump [cm^3] : ", JLabel.CENTER);
 		label_Vgsz.setForeground(Color.BLACK);
-		label_nsz = new JLabel("n sziv. [f/perc] :", JLabel.CENTER);
+		label_nsz = new JLabel("n pump [rot./min] :", JLabel.CENTER);
 		label_nsz.setForeground(Color.BLACK);
-		label_Qsz = new JLabel("Q sziv.,geo [liter/perc] :", JLabel.CENTER);
+		label_Qsz = new JLabel("Q pump,geo [liter/min] :", JLabel.CENTER);
 		label_Qsz.setForeground(Color.BLACK);
 
-		label_Vgm = new JLabel("Vg motor [cm^3/ford.] : ", JLabel.CENTER);
+		label_Vgm = new JLabel("Vg motor [cm^3/rot.] : ", JLabel.CENTER);
 		label_Vgm.setForeground(Color.BLUE);
-		label_nm = new JLabel("n motor [ford./perc] :", JLabel.CENTER);
+		label_nm = new JLabel("n motor [rot./min] :", JLabel.CENTER);
 		label_nm.setForeground(Color.BLUE);
-		label_Qm = new JLabel("Q motor [liter/perc] :", JLabel.CENTER);
+		label_Qm = new JLabel("Q motor [liter/min] :", JLabel.CENTER);
 		label_Qm.setForeground(Color.BLUE);
 
 		ActionListener actionListener = new ActionListener() {
@@ -252,7 +252,7 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 		drawing1.setShowNumbers(true);
 		drawing1.setxOffset(60);
 		drawing1.setyOffset(40);
-		drawing1.setTitle("Soros kapcsolás");
+		drawing1.setTitle("Serial operation");
 		drawing1.setShowTitle(true);
 
 		drawing2 = new Plotter();
@@ -270,7 +270,7 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 		drawing2.setShowNumbers(true);
 		drawing2.setxOffset(60);
 		drawing2.setyOffset(40);
-		drawing2.setTitle("Párhuzamos kapcsolás");
+		drawing2.setTitle("Parallel operation");
 		drawing2.setShowTitle(true);
 
 		// Minden osszerakunk es rajzolunk.
@@ -285,58 +285,58 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 
 		label_soros_Mm = new JLabel("M motor. [Nm] :", JLabel.CENTER);
 		label_soros_Mm.setForeground(Color.BLUE);
-		label_soros_Ph = new JLabel("P hasznos (motor) [W] :", JLabel.CENTER);
+		label_soros_Ph = new JLabel("P effective (motor) [W] :", JLabel.CENTER);
 		label_soros_Ph.setForeground(Color.BLUE);
 		label_soros_Mm_val = new JTextField("8");
 		label_soros_Mm_val.setEditable(false);
 		label_soros_Ph_val = new JTextField("8");
 		label_soros_Ph_val.setEditable(false);
 
-		label_soros_Pbe = new JLabel("P be (szivattyú) [W] :", JLabel.CENTER);
+		label_soros_Pbe = new JLabel("P in (pump) [W] :", JLabel.CENTER);
 		label_soros_Pbe.setForeground(Color.GREEN);
 		label_soros_Pbe_val = new JTextField("8");
 		label_soros_Pbe_val.setEditable(false);
 
-		label_soros_Pnyh = new JLabel("P nyomáshatároló [W] :", JLabel.CENTER);
+		label_soros_Pnyh = new JLabel("P pressure relief valve [W] :", JLabel.CENTER);
 		label_soros_Pnyh.setForeground(Color.BLACK);
 		label_soros_Pnyh_val = new JTextField("8");
 		label_soros_Pnyh_val.setEditable(false);
 
-		label_soros_Pf = new JLabel("P fojtás [W] :", JLabel.CENTER);
+		label_soros_Pf = new JLabel("P throttling [W] :", JLabel.CENTER);
 		label_soros_Pf.setForeground(Color.RED);
 		label_soros_Pf_val = new JTextField("8");
 		label_soros_Pf_val.setEditable(false);
 
-		label_soros_eta = new JLabel("hatásfok [%] :", JLabel.CENTER);
+		label_soros_eta = new JLabel("efficiency [%] :", JLabel.CENTER);
 		label_soros_eta.setForeground(Color.BLACK);
 		label_soros_eta_val = new JTextField("8");
 		label_soros_eta_val.setEditable(false);
 
 		label_parh_Mm = new JLabel("M motor. [Nm] :", JLabel.CENTER);
 		label_parh_Mm.setForeground(Color.BLUE);
-		label_parh_Ph = new JLabel("P hasznos (motor) [W] :", JLabel.CENTER);
+		label_parh_Ph = new JLabel("P effective (motor) [W] :", JLabel.CENTER);
 		label_parh_Ph.setForeground(Color.BLUE);
 		label_parh_Mm_val = new JTextField("8");
 		label_parh_Mm_val.setEditable(false);
 		label_parh_Ph_val = new JTextField("8");
 		label_parh_Ph_val.setEditable(false);
 
-		label_parh_Pbe = new JLabel("P be (szivattyú) [W] :", JLabel.CENTER);
+		label_parh_Pbe = new JLabel("P in (pump) [W] :", JLabel.CENTER);
 		label_parh_Pbe.setForeground(Color.GREEN);
 		label_parh_Pbe_val = new JTextField("8");
 		label_parh_Pbe_val.setEditable(false);
 
-		label_parh_Pnyh = new JLabel("P nyomáshatároló [W] :", JLabel.CENTER);
+		label_parh_Pnyh = new JLabel("P pressure relief valve [W] :", JLabel.CENTER);
 		label_parh_Pnyh.setForeground(Color.BLACK);
 		label_parh_Pnyh_val = new JTextField("8");
 		label_parh_Pnyh_val.setEditable(false);
 
-		label_parh_Pf = new JLabel("P fojtás [W] :", JLabel.CENTER);
+		label_parh_Pf = new JLabel("P throttling [W] :", JLabel.CENTER);
 		label_parh_Pf.setForeground(Color.RED);
 		label_parh_Pf_val = new JTextField("8");
 		label_parh_Pf_val.setEditable(false);
 
-		label_parh_eta = new JLabel("hatásfok [%] :", JLabel.CENTER);
+		label_parh_eta = new JLabel("efficiency [%] :", JLabel.CENTER);
 		label_parh_eta.setForeground(Color.BLACK);
 		label_parh_eta_val = new JTextField("8");
 		label_parh_eta_val.setEditable(false);
@@ -550,9 +550,9 @@ public class AtgSorosParhuzamosFojtas extends JFrame implements ChangeListener {
 
 	public void stateChanged(ChangeEvent ce) {
 
-		message_Q.setText("Q motor / Q sziv.geo.: " + slider_Q.getValue()
+		message_Q.setText("Q motor / Q pump geo.: " + slider_Q.getValue()
 				/ 100. + " [-]");
-		message_dp.setText("Nyomás: " + slider_dp.getValue() + " [bar]");
+		message_dp.setText("Pressure: " + slider_dp.getValue() + " [bar]");
 
 		update_curves();
 	}
