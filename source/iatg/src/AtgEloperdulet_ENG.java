@@ -178,7 +178,7 @@ public class AtgEloperdulet_ENG extends JFrame implements ChangeListener {
 	public void stateChanged(ChangeEvent ce) {
 
 		message.setText("Prerotational blade row angle: " + slider.getValue()
-				+ " deg");
+				+ " fok");
 
 		update_curves();
 	}

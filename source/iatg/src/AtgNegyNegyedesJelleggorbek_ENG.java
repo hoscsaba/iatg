@@ -62,7 +62,7 @@ public class AtgNegyNegyedesJelleggorbek_ENG extends JFrame implements
 		slider.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
 		slider.addChangeListener(this);
 
-		message = new JLabel("RPM (n/n nom): 0%", JLabel.CENTER);
+		message = new JLabel("RPM (n/n névl): 0%", JLabel.CENTER);
 
 		controlpanel = new JPanel();
 		controlpanel.setLayout(new GridLayout(0, 1));
@@ -80,8 +80,8 @@ public class AtgNegyNegyedesJelleggorbek_ENG extends JFrame implements
 		drawing1.setyMax(250);
 		drawing1.setWidth(450);
 		drawing1.setHeight(400);
-		drawing1.setXlabel("Q/Q_nom [%]");
-		drawing1.setYlabel("H/H_nom, M/M_nom [%]");
+		drawing1.setXlabel("Q/Q_névl [%]");
+		drawing1.setYlabel("H/H_névl, M/M_névl [%]");
 		drawing1.setxTic(50);
 		drawing1.setyTic(50);
 		drawing1.setShowTicks(true);
@@ -93,9 +93,9 @@ public class AtgNegyNegyedesJelleggorbek_ENG extends JFrame implements
 
 		bottompanel = new JPanel(new GridLayout(1, 2));
 
-		label_nominal = new JLabel("Relativ head (H/H_nom)");
+		label_nominal = new JLabel("Relativ head (H/H_névl)");
 		label_nominal.setForeground(Color.BLACK);
-		label_actual = new JLabel("Relativ torque (M/M_nom)");
+		label_actual = new JLabel("Relativ (axis)torque (M/M_névl)");
 		label_actual.setForeground(Color.RED);
 
 		bottompanel.add(label_nominal);
