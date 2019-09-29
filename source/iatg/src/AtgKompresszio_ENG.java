@@ -91,7 +91,7 @@ public class AtgKompresszio_ENG extends JFrame implements ChangeListener {
         // Politropikus kitevo slider slider
         n_slider = new JSlider(JSlider.HORIZONTAL, 100, 160, 145);
         Hashtable<Integer, JLabel> n_labelTable = new Hashtable<Integer, JLabel>();
-        n_labelTable.put(new Integer(100), new JLabel("1 (izoterm)"));
+        n_labelTable.put(new Integer(100), new JLabel("1 (isotherm)"));
         n_labelTable.put(new Integer(140), new JLabel("1.4 (isentropic)"));
         n_labelTable.put(new Integer(160), new JLabel("1.6"));
 
@@ -135,7 +135,7 @@ public class AtgKompresszio_ENG extends JFrame implements ChangeListener {
 
         label_eleje = new JLabel("");
         label_eleje.setForeground(Color.BLACK);
-        label_kiindulo = new JLabel("Starting state", JLabel.CENTER);
+        label_kiindulo = new JLabel("Initial state", JLabel.CENTER);
         label_kiindulo.setForeground(Color.BLACK);
         label_izentrop = new JLabel("Isentropic", JLabel.CENTER);
         label_izentrop.setForeground(Color.RED);

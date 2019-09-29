@@ -179,7 +179,7 @@ public class AtgNPSH_ENG extends JFrame implements ChangeListener {
 		drawing2.addArrow(x1, y1, Color.BLUE);
 		drawing2.addArrow(x2, y2, Color.RED);
 		drawing2.addCircle(NPSHrakt, Hakt * 0.97, Color.BLACK);
-		drawing2.setTitle("Leszívási görbe, Q=" + Qakt + "m3/h");
+		drawing2.setTitle("Head vs. NPSH, Q=" + Qakt + "m3/h");
 
 		drawing1.repaint();
 		drawing2.repaint();

@@ -33,7 +33,7 @@ public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 	Vector<Double> yjguj;
 	Vector<Double> yaffin;
 	Vector<Double> yrendszer;
-	double nnevl = 1470;
+	double nnom = 1470;
 
 	public static void main(String[] args) {
 		AtgFordulatszamszabalyozas_ENG app = new AtgFordulatszamszabalyozas_ENG();
@@ -70,7 +70,7 @@ public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 		slider.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
 		slider.addChangeListener(this);
 
-		message = new JLabel("Wanted volume flow rate: 160 m3/h", JLabel.CENTER);
+		message = new JLabel("Prescribed volume flow rate: 160 m3/h", JLabel.CENTER);
 
 		controlpanel = new JPanel();
 		controlpanel.setLayout(new GridLayout(0, 1));
@@ -101,11 +101,11 @@ public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 
 		bottompanel = new JPanel(new GridLayout(2, 2));
 
-		label_Qk = new JLabel("Wanted volume flow rate:  80  m3/h");
+		label_Qk = new JLabel("Prescribed volume flow rate:  80  m3/h");
 		label_Qk.setForeground(Color.BLUE);
-		label_Qs = new JLabel("Helper point          : 2 m3/h");
+		label_Qs = new JLabel("Auxillary point          : 2 m3/h");
 		label_Qs.setForeground(Color.RED);
-		label_nnevl = new JLabel("Névleges RPM : 1470/min");
+		label_nnevl = new JLabel("Nominal RPM : 1470/min");
 		label_nnevl.setForeground(Color.RED);
 		label_nuj = new JLabel("New RPM        : 2/min");
 		label_nuj.setForeground(Color.DARK_GRAY);
@@ -136,13 +136,13 @@ public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 		double Qs = (0.04 + Math.sqrt(0.04 * 0.04 + 4 * 24 * (beta + 0.0004)))
 				/ (2 * (beta + 0.0004));
 		double Hs = 24 + 0.04 * Qs - 0.0004 * Qs * Qs;
-		double nuj = nnevl * Qk / Qs;
+		double nuj = nnom * Qk / Qs;
 		double Q;
 		for (int i = 0; i < x.size(); i++) {
 			Q = x.elementAt(i);
 			yaffin.addElement(beta * Q * Q);
-			yjguj.addElement(24 * (nuj / nnevl) * (nuj / nnevl) + 0.04
-					* (nuj / nnevl) * Q - 0.0004 * Q * Q);
+			yjguj.addElement(24 * (nuj / nnom) * (nuj / nnom) + 0.04
+					* (nuj / nnom) * Q - 0.0004 * Q * Q);
 		}
 		drawing1.addCurve(x, yjg, Color.RED, Plotter.solid);
 		drawing1.addCurve(x, yrendszer, Color.BLUE, Plotter.solid);
@@ -154,9 +154,9 @@ public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 
 		drawing1.repaint();
 
-		label_Qk.setText("Wanted volume flow rate          : " + Qk + " m3/h");
-		label_Qs.setText("Helper point volume flow rate : " + Math.round(Qs) + " m3/h");
-		label_nnevl.setText("Névleges RPM : 1470/min");
+		label_Qk.setText("Prescribed volume flow rate          : " + Qk + " m3/h");
+		label_Qs.setText("Auxillary point volume flow rate : " + Math.round(Qs) + " m3/h");
+		label_nnevl.setText("Nominal RPM : 1470/min");
 		label_nuj.setText("New RPM              : " + Math.round(nuj)
 				+ "/min");
 
@@ -164,7 +164,7 @@ public class AtgFordulatszamszabalyozas_ENG extends JFrame implements
 
 	public void stateChanged(ChangeEvent ce) {
 
-		message.setText("Wanted volume flow rate: " + slider.getValue() + " m3/h ");
+		message.setText("Prescribed volume flow rate: " + slider.getValue() + " m3/h ");
 
 		update_curves();
 	}
